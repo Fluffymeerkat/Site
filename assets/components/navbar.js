@@ -1,7 +1,7 @@
 (function() {
   const navHtml = `
     <nav class="site-navbar">
-      <div class="navbar-brand">My Website</div>
+      <div class="navbar-brand"><img src="assets/images/logo.png" alt="Logo"></div>
       <button class="navbar-toggle" aria-label="Toggle navigation">
         <span></span>
         <span></span>
