@@ -6,3 +6,6 @@ body {
 h1 {
     color: blue;
 }
+h2 {
+    color: darkblue; font-family: Arial, sans-serif;font-size: 24px; margin-bottom: 10px;
+}
