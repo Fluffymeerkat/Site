@@ -1,11 +1,37 @@
+:root {
+    color-scheme: light dark;
+    color: CanvasText;
+    background-color: Canvas;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 40px;
+    background-color: Canvas;
+    color: CanvasText;
+}
+
+p {
+    color: CanvasText;
+    background: transparent;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
 }
 
 h1 {
-    color: blue;
+    color: HighlightText;
 }
+
 h2 {
-    color: darkblue; font-family: Arial, sans-serif;font-size: 24px; margin-bottom: 10px;
+    color: HighlightText;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: Canvas;
+        color: CanvasText;
+    }
 }
