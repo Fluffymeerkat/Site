@@ -19,6 +19,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://fluffymeerkat.co.uk/About</loc>
+    <lastmod>2024-05-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fluffymeerkat.co.uk/Contact</loc>
+    <lastmod>2024-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fluffymeerkat.co.uk/Construction</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://fluffymeerkat.co.uk/Dedication-page</loc>
     <lastmod>2024-04-20</lastmod>
     <changefreq>yearly</changefreq>
@@ -29,6 +47,12 @@
     <lastmod>2024-06-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.1</priority>
+  </url>
+  <url>
+  <loc>https://fluffymeerkat.co.uk/construction</loc>
+  <lastmod>2024-06-01</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.5</priority>
   </url>
   </urlset>
   
