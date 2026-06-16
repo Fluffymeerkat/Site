@@ -12,6 +12,7 @@
         <a href="dedication.html">Dedication</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
+        <a href="construction.html">Under Construction</a>
       </div>
     </nav>
   `;
