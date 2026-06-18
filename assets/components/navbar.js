@@ -10,7 +10,7 @@
         <span></span>
       </button>
       <div class="navbar-links" id="navbar-links">
-        <a href="index.html">Home</a>
+        <a href="Home.html">Home</a>
         <a href="dedication.html">Dedication</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
@@ -23,7 +23,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 1rem;
+      padding: 0.65rem 0.75rem;
       background: #0a3d62;
       color: #ffffff;
       font-family: Arial, sans-serif;
@@ -39,13 +39,13 @@
     .site-navbar .navbar-brand {
       display: flex;
       align-items: center;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 700;
     }
 
     .site-navbar .navbar-brand img {
-      max-width: 120px;
-      max-height: 120px;
+      max-width: 90px;
+      max-height: 90px;
       width: auto;
       height: auto;
       display: block;
@@ -53,13 +53,13 @@
 
     .site-navbar .navbar-links {
       display: flex;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .site-navbar .navbar-links a {
       color: #ffffff;
       text-decoration: none;
-      padding: 0.4rem 0.6rem;
+      padding: 0.3rem 0.5rem;
       border-radius: 4px;
       transition: background 0.2s ease;
     }
@@ -72,8 +72,8 @@
       display: none;
       flex-direction: column;
       justify-content: space-between;
-      width: 32px;
-      height: 24px;
+      width: 28px;
+      height: 20px;
       background: transparent;
       border: none;
       cursor: pointer;
@@ -105,7 +105,7 @@
     @media (max-width: 700px) {
       .site-navbar {
         flex-wrap: wrap;
-        padding: 0.9rem 0.9rem 0.5rem;
+        padding: 0.75rem 0.75rem 0.4rem;
       }
 
       .navbar-toggle {
@@ -116,13 +116,13 @@
         width: 100%;
         display: none;
         flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.8rem;
+        gap: 0.4rem;
+        margin-top: 0.6rem;
       }
 
       .navbar-links a {
         width: 100%;
-        padding: 0.75rem 0.8rem;
+        padding: 0.65rem 0.75rem;
       }
 
       .navbar-links.active {
