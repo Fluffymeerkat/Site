@@ -1,4 +1,10 @@
+// ===== NAVBAR COMPONENT ===== 
+// This IIFE (Immediately Invoked Function Expression) encapsulates the navbar logic 
+// to avoid polluting the global namespace and prevent conflicts with other scripts
 (function() {
+  // ===== SECTION 1: HTML STRUCTURE =====
+  // Defines the HTML markup for the navbar including the logo, hamburger menu toggle button,
+  // and navigation links. Uses semantic HTML and ARIA attributes for accessibility.
   const navHtml = `
     <nav class="site-navbar" aria-label="Primary navigation">
       <div class="navbar-brand">
@@ -9,6 +15,7 @@
         <span></span>
         <span></span>
       </button>
+      <!-- Navigation links container with ID for toggling visibility on mobile and aria controls -->
       <div class="navbar-links" id="navbar-links">
         <a href="Home.html">Home</a>
         <a href="dedication.html">Dedication</a>
@@ -18,7 +25,19 @@
     </nav>
   `;
 
+  // ===== SECTION 2: CSS STYLING =====
+  // All styling for the navbar is defined here as a template string. Includes:
+  // - Navbar layout (fixed position, flexbox)
+  // - Logo/brand styling
+  // - Navigation links appearance and hover effects  
+  // - Hamburger menu button styling and animations
+  // - Responsive design for screens smaller than 700px (mobile-first approach)
   const styles = `
+    /* Add padding to body to account for the fixed navbar height */
+    body {
+      padding-top: 85px;
+    }
+
     .site-navbar {
       display: flex;
       align-items: center;
@@ -103,26 +122,43 @@
     }
 
     @media (max-width: 700px) {
+      body {
+        padding-top: 65px;
+      }
+
       .site-navbar {
-        flex-wrap: wrap;
-        padding: 0.75rem 0.75rem 0.4rem;
+        padding: 0.75rem 0.75rem;
+        height: auto;
+      }
+
+      .site-navbar .navbar-brand img {
+        max-width: 60px;
+        max-height: 60px;
       }
 
       .navbar-toggle {
         display: flex;
+        order: 2;
       }
 
       .navbar-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         width: 100%;
         display: none;
         flex-direction: column;
-        gap: 0.4rem;
-        margin-top: 0.6rem;
+        gap: 0;
+        margin-top: 0;
+        background: #0a3d62;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .navbar-links a {
         width: 100%;
-        padding: 0.65rem 0.75rem;
+        padding: 0.75rem 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .navbar-links.active {
@@ -131,24 +167,35 @@
     }
   `;
 
+  // ===== SECTION 3: DOM MANIPULATION & INSERTION =====
+  // Creates the navbar element and injects it into the page
   const container = document.createElement('div');
+  // Insert the navbar HTML into the page before all other body content
   container.innerHTML = navHtml;
   document.body.prepend(container);
 
+  // Create a style tag and insert all navbar CSS into the document head
   const styleTag = document.createElement('style');
+  // Apply the CSS styles to the document
   styleTag.textContent = styles;
   document.head.appendChild(styleTag);
 
+  // ===== SECTION 4: EVENT LISTENERS & INTERACTIVITY =====
+  // Selects the hamburger menu button and navigation links for event handling
   const toggleButton = container.querySelector('.navbar-toggle');
   const links = container.querySelector('.navbar-links');
 
+  // Handle hamburger menu toggle: opens/closes the mobile navigation menu
+  // Toggles the 'active' class to show/hide links and 'open' class to animate the hamburger icon
+  // Updates ARIA attribute for screen reader accessibility
   toggleButton.addEventListener('click', () => {
     const isOpen = links.classList.toggle('active');
     toggleButton.classList.toggle('open', isOpen);
     toggleButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
-  // Close menu when focus leaves the navigation on mobile
+  // Handle focus loss: automatically closes the mobile menu when user tabs away from the navbar
+  // This improves accessibility and user experience on mobile devices
   links.addEventListener('focusout', (event) => {
     if (!container.contains(event.relatedTarget)) {
       links.classList.remove('active');

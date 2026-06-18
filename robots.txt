@@ -1,0 +1,17 @@
+# robots.txt - Search Engine Crawler Instructions
+# This file controls which pages search engine bots can access and crawl
+
+# Default rule for all bots
+User-agent: *
+
+# Disallow crawling of everything by default
+Disallow: /
+
+# Allow crawling of index.html (homepage)
+Allow: /index.html
+
+# Allow crawling of sitemap.xml for better indexing
+Allow: /sitemap.xml
+
+# Specify the location of the sitemap
+Sitemap: https://yoursite.com/sitemap.xml

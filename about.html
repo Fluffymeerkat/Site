@@ -6,8 +6,15 @@
     <title>about</title>
     <link rel="stylesheet" href="assets/style.css">
     </head>
-<body>
-    <h1>About</h1>
+    <body>
+        <main>
+        <header><!-- Navigation bar will be dynamically inserted here by navbar.js -->
+            <div id="navbar"></div>
+        </header>
+        <span></span># add padding here to separate the header from the main content
+        <span></span>
+        <!-- Main content area with a unique ID for accessibility -->
+            <h1>About</h1>
     <section class="about-section">
         <p>welcome to our about page. Feel free to explore and learn more about us.</p>
         <p>Fluffymeerkat was initially a gamer tag that became much more.</p>
@@ -24,5 +31,9 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </section>
-</body>
+    </main>
+    <footer>&copy; 2024 Fluffy Meerkat. All rights reserved.</footer>
+    </body>
+    <!-- Include the navbar.js script to dynamically insert the navigation bar -->
+<script src="assets/components/navbar.js"></script>
 </html>
