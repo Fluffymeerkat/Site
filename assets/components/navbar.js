@@ -35,13 +35,14 @@
   const styles = `
     /* Add padding to body to account for the fixed navbar height */
     body {
-      padding-top: 85px;
+      padding-top: 85px !important;
     }
 
     .site-navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: nowrap;
       padding: 0.65rem 0.75rem;
       background: #0a3d62;
       color: #ffffff;
@@ -123,12 +124,18 @@
 
     @media (max-width: 700px) {
       body {
-        padding-top: 65px;
+        padding-top: 65px !important;
       }
 
       .site-navbar {
         padding: 0.75rem 0.75rem;
         height: auto;
+        flex-direction: row;
+        position: relative;
+      }
+
+      .site-navbar .navbar-brand {
+        flex: 1;
       }
 
       .site-navbar .navbar-brand img {
@@ -139,29 +146,33 @@
       .navbar-toggle {
         display: flex;
         order: 2;
+        flex-shrink: 0;
       }
 
-      .navbar-links {
+      .site-navbar .navbar-links {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        width: 100%;
+        width: 100vw;
         display: none;
         flex-direction: column;
         gap: 0;
-        margin-top: 0;
+        margin: 0;
+        margin-left: calc(-50vw + 50%);
         background: #0a3d62;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 999;
       }
 
-      .navbar-links a {
+      .site-navbar .navbar-links a {
         width: 100%;
         padding: 0.75rem 0.75rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
       }
 
-      .navbar-links.active {
+      .site-navbar .navbar-links.active {
         display: flex;
       }
     }
