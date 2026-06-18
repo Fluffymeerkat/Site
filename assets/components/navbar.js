@@ -35,7 +35,7 @@
   const styles = `
     /* Add padding to body to account for the fixed navbar height */
     body {
-      padding-top: 85px !important;
+      padding-top: 120px !important;
     }
 
     .site-navbar {
