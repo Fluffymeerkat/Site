@@ -14,4 +14,4 @@ Allow: /index.html
 Allow: /sitemap.xml
 
 # Specify the location of the sitemap
-Sitemap: https://yoursite.com/sitemap.xml
+Sitemap: https://fluffymeerkat.co.uk/sitemap.xml
