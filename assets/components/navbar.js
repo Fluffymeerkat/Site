@@ -21,6 +21,7 @@
         <a href="dedication.html">Dedication</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
+        <a href="events.html">Events</a>
       </div>
     </nav>
   `;

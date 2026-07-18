@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Vacay</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/gallery.css">
+</head>
+<body>
+<h1>First Vacation</h1>
+<p>Vaction to futaventura</p>
+<section class="gallery">
+    <div class="gallery-controls">
+        <h2>Futaventura Gallery</h2>
+        <p class="gallery-note">Upload new images to the Futaventura gallery.</p>
+
+        <form id="uploadForm" class="gallery-upload" enctype="multipart/form-data">
+            <label for="imageInput">Select image to upload:</label>
+            <input id="imageInput" name="image" type="file" accept="image/*" required>
+            <button type="submit">Upload Image</button>
+        </form>
+
+        <p id="uploadMessage" class="upload-message" aria-live="polite"></p>
+    </div>
+
+    <div id="galleryGrid" class="gallery-grid" aria-live="polite"></div>
+</section>
+
+<script>
+    const uploadForm = document.getElementById('uploadForm');
+    const imageInput = document.getElementById('imageInput');
+    const uploadMessage = document.getElementById('uploadMessage');
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    async function loadGalleryImages() {
+        try {
+            const response = await fetch('futaventura-list.php', { cache: 'no-store' });
+            const data = await response.json();
+
+            galleryGrid.innerHTML = '';
+
+            if (!Array.isArray(data.images) || data.images.length === 0) {
+                galleryGrid.innerHTML = '<p class="gallery-empty">No images uploaded yet.</p>';
+                return;
+            }
+
+            data.images.forEach((imagePath) => {
+                const figure = document.createElement('figure');
+                figure.className = 'gallery-item';
+
+                const img = document.createElement('img');
+                img.src = imagePath;
+                img.alt = 'Futaventura photo';
+                img.loading = 'lazy';
+
+                figure.appendChild(img);
+                galleryGrid.appendChild(figure);
+            });
+        } catch (error) {
+            galleryGrid.innerHTML = '<p class="gallery-empty">Unable to load gallery images.</p>';
+        }
+    }
+
+    uploadForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!imageInput.files.length) {
+            uploadMessage.textContent = 'Please choose an image first.';
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', imageInput.files[0]);
+
+        uploadMessage.textContent = 'Uploading...';
+
+        try {
+            const response = await fetch('futaventura-upload.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            uploadMessage.textContent = result.message || 'Upload complete.';
+
+            if (result.success) {
+                uploadForm.reset();
+                await loadGalleryImages();
+            }
+        } catch (error) {
+            uploadMessage.textContent = 'Upload failed. Please try again.';
+        }
+    });
+
+    loadGalleryImages();
+</script>
+
+</body>
+</html>
